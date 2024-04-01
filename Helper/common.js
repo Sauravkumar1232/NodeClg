@@ -6,6 +6,6 @@ function divide(a, b) {
 }
 
 module.exports = {
-  multiply,
-  divide,
+  multiply: multiply,
+  divide: divide,
 };

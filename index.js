@@ -30,5 +30,5 @@ console.log("Circle =>", circle);
 const ractangle = area.ractangle(5, 5);
 console.log("Ractangle +>", ractangle);
 
-const multi = maths1.multi(5, 5);
+const multi = maths1.multiply(5, 5);
 console.log(multi);
