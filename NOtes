@@ -1,2 +1,5 @@
-1-> Wrapper Module = 
-requre in wrapper it has 5 parameter
+// 1-> Wrapper Module =
+// requre in wrapper it has 5 parameter
+
+// writeFileSysnc => first one task complete then go to next
+// writeFile ->
