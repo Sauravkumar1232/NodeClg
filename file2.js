@@ -13,7 +13,11 @@ async function file() {
       if (error) {
         console.log(error);
       } else {
-        console.log(data, "data");
+        let content = "RD College";
+        console.log(data, "data of");
+        let docFile = fs.writeFile("/log.doc", content, (error) => {
+          console.log(docFile, "converted to doc");
+        });
       }
     });
   } catch (error) {
@@ -21,3 +25,23 @@ async function file() {
   }
 }
 file();
+
+//=================================================================================================
+const data = "dfghjkldfghjkl sdfghjkl";
+fs.appendFile("./log3.txt", data, (error, data) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log(data, "data");
+  }
+});
+
+//===========================================
+
+fs.mkdir("video", (error) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("directory created");
+  }
+});
