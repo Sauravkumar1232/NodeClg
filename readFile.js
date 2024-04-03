@@ -45,3 +45,18 @@ fs.mkdir("video", (error) => {
     console.log("directory created");
   }
 });
+
+// delete file
+// path = "log.txt";
+// fs.unlinkSync(path);
+// console.log("deleted");
+
+fs.rmdir("video", (error) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("directory created");
+  }
+});
+
+// through .then .catch

@@ -3,3 +3,6 @@
 
 // writeFileSysnc => first one task complete then go to next
 // writeFile ->
+
+// fs = callBack function
+// fs/Promise => return promise handle by async await and .then .catch
