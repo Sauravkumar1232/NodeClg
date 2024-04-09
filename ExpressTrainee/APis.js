@@ -36,4 +36,5 @@ app.listen(3000, () => {
 
 // Route + all url => routing parameter
 // : to make thme dynamic
-//
+// req.query => query paramter  start with &
+// req.params=> routing parameter combine with route
