@@ -1,9 +1,10 @@
+// import { route } from "./routes/student.js";
 const express = require("express");
 const app = express();
 
 const student = require("./routes/student");
-app.use(student);
-
+// app.use(student);
+app.use("/student", student);
 app.listen(3000, () => {
   console.log("Server Started..");
 });

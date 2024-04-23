@@ -7,6 +7,10 @@ const studentCreate = async (req, res) => {
   res.end("<h1>Create Student</h1>");
 };
 
+const getHome = (req, res) => {
+  res.render("Home.ejs");
+};
+
 const getStudents = async (req, res) => {
   try {
     let students = await Student.find({});
@@ -16,4 +20,4 @@ const getStudents = async (req, res) => {
     console.log(err);
   }
 };
-module.exports = { studentCreate, getStudents };
+module.exports = { studentCreate, getStudents, getHome };
