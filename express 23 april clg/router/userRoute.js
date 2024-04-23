@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 router.get("/signUp", (req, res) => res.render("signUp"));
 
 router.post("/user/signUp", (req, res) => {
-  UserController.create(req, res);
+  UserController.signUp(req, res);
 });
 
 router.post("/user/login", (req, res) => {

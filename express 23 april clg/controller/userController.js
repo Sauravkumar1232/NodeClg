@@ -1,10 +1,14 @@
 const User = require("../model/userSchema");
 const bcrypt = require("bcrypt");
 const saltRound = 10;
-const create = async (req, res) => {
-  try {j
-    console.log(req.body);
-    let user = await new User(req.body);
+const signUp = async (req, res) => {
+  try {
+    let isEmail = User.findOne({ email: req.body.email });
+    console.log(req.body.email, isEmail);
+    if (!isEmail) {
+      return res.send("<h1>Already registered</h1>");
+    }
+    let user = new User(req.body);
     user.password = bcrypt.hashSync(req.body.password, saltRound);
     user = await user.save();
     res.send("<h1>Saved</h1>");
@@ -19,6 +23,7 @@ const login = async (req, res) => {
       return res.send("<h1>No user found....</h1>");
     }
     user.password = bcrypt.hashSync(req.body.password, saltRound);
+    // console.log('db pass',user. )
     let flag = bcrypt.compareSync(req.body.password, user.password);
     if (flag) {
       res.send("<h1>Logged in succes....</h1>");
@@ -29,6 +34,6 @@ const login = async (req, res) => {
 };
 
 module.exports = {
-  create,
+  signUp,
   login,
 };
