@@ -1,12 +1,14 @@
 const User = require("../model/userSchema");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const saltRound = 10;
 const signUp = async (req, res) => {
   try {
-    let isEmail = User.findOne({ email: req.body.email });
+    const { email } = req.body;
+    let isEmail = await User.findOne({ email: req.body.email });
     console.log(req.body.email, isEmail);
-    if (!isEmail) {
-      return res.send("<h1>Already registered</h1>");
+    if (isEmail) {
+      res.send("<h1>Already registered</h1>");
     }
     let user = new User(req.body);
     user.password = bcrypt.hashSync(req.body.password, saltRound);
@@ -23,10 +25,13 @@ const login = async (req, res) => {
       return res.send("<h1>No user found....</h1>");
     }
     user.password = bcrypt.hashSync(req.body.password, saltRound);
+
     // console.log('db pass',user. )
     let flag = bcrypt.compareSync(req.body.password, user.password);
     if (flag) {
-      res.send("<h1>Logged in succes....</h1>");
+      let token = jwt.sign({ id: user._id }, "secret", { expiresIn: 60 });
+      console.log(token);
+      res.cookie("jwt", token).send("<h1>Logged in succes....</h1>");
     }
   } catch (err) {
     res.send("<h1>Incorrect passqord or email....</h1>");
