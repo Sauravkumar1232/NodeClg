@@ -1,0 +1,381 @@
+<!-- // template engine send page to the client from server -->
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Merriweather Sans", sans-serif;
+      }
+
+      body {
+        background-color: #b0dbee;
+
+        #form {
+          color: white;
+          background-color: #009edf;
+          border-radius: 5px;
+
+          width: 400px;
+          padding: 40px;
+          margin: 150px auto;
+
+          -webkit-box-shadow: -1px 3px 18px 0px rgba(0, 0, 0, 0.75);
+          -moz-box-shadow: -1px 3px 18px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: -1px 3px 18px 0px rgba(0, 0, 0, 0.75);
+
+          p {
+            font-size: 0.9em;
+          }
+
+          button {
+            width: 100%;
+            text-align: center;
+            color: grey;
+            margin-top: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.4);
+          }
+
+          .form-group {
+            margin: 15px auto;
+
+            label {
+              font-weight: bold;
+              font-size: 0.9em;
+            }
+
+            .input-group {
+              border-radius: 5px;
+              -webkit-box-shadow: -1px 3px 18px 0px rgba(0, 0, 0, 0.35);
+              -moz-box-shadow: -1px 3px 18px 0px rgba(0, 0, 0, 0.35);
+              box-shadow: -1px 3px 18px 0px rgba(0, 0, 0, 0.35);
+
+              .input-group-addon {
+                border: none;
+                border-right: 1px solid rgba(0, 0, 0, 0.2);
+              }
+
+              input {
+                padding-left: 10px;
+              }
+
+              i {
+                color: #009edf;
+              }
+            }
+
+            input {
+              padding: 3px;
+              width: 100%;
+              border: none;
+              border-radius: 0 5px 5px 0;
+            }
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 id="title" class="text-center">   Book Details Form</h1>
+            <!-- <p id="description" class="text-center">
+            Book Details
+            </p> -->
+      </header>
+      <div class="form-wrap">
+        <form action="/create" method="POST" id="survey-form">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label id="name-label" for="name">Book Name</label>
+                <input
+                  type="text"
+                  name="bookName"
+                  id="name"
+                  placeholder="Enter Book name"
+                  class="form-control"
+               
+                />
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label id="name-label" for="name">Book Internal Name</label>
+                <input
+                  type="text"
+                  name="bookInternalName"
+                  id="email"
+                  placeholder="Enter book Internal Name"
+                  class="form-control"
+                  
+                />
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label id="name-label" for="email">Book Code</label>
+                    <input
+                    type="text"
+                    name="bookCode"
+                    id="name"
+                    placeholder="Enter book Code"
+                    class="form-control"
+                    
+                    />
+                </div>
+            </div></div>
+        </div>
+       
+        <div class="col-md-6">
+            <div class="form-group">
+              <label id="name-label" for="email">Book Author</label>
+              <input
+                type="text"
+                name="author"
+                id="name"
+                placeholder="Enter author"
+                class="form-control"
+                
+              />
+            </div>
+          </div>
+        
+
+        <div class="col-md-6    ">
+            <div class="form-group">
+              <label id="name-lab  el" for="email">Book Title</label>
+              <input
+                type="text"
+                name="title"
+                id="name"
+                placeholder="title"
+                class="form-control"
+                
+              />
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+              <label id="name-label" for="email">ISVN No.</label>
+              <input
+                type="text"
+                name="ISVN_No"
+                id="name"
+                placeholder="Enter ISVN_No"
+                class="form-control"
+                
+              />
+            </div>
+          
+
+
+        <div class="col-md-6">
+            <div class="form-group">
+              <label id="name-label" for="email">Book Price</label>
+              <input
+                type="number"
+                name="price"
+                id="name"
+                placeholder="Enter your email"
+                class="form-control"
+                
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+              <label id="name-label" for="email">Published Date</label>
+              <input
+                type="date"
+                name="publishedDate"
+                id="name"
+                placeholder="Enter your email"
+                class="form-control"
+                
+              />
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- <div class="col-md-6">
+            <div class="form-group">
+              <label id="email-label" for="email">Sample Copy</label>
+              <input
+                type="radio"
+                name="email"
+                id="email"
+                placeholder="Enter your email"
+                class="form-control"
+                
+              />
+            </div>
+          </div>
+        </div> -->
+
+
+          <!-- <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label id="number-label" for="number"
+                  >Age <small>(optional)</small></label
+                >
+                <input
+                  type="number"
+                  name="age"
+                  id="number"
+                  min="10"
+                  max="99"
+                  class="form-control"
+                  placeholder="Age"
+                />
+              </div>
+            </div> -->
+            <!-- <div class="col-md-6">
+              <div class="form-group">
+                <label>current role</label>
+                <select id="dropdown" name="role" class="form-control" >
+                  <option disabled selected value>Select</option>
+                  <option value="student">Student</option>
+                  <option value="job">Full Time Job</option>
+                  <option value="learner">Full Time Learner</option>
+                  <option value="preferNo">Prefer not to say</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+          </div> -->
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Sample Copy?</label>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input
+                    type="radio"
+                    id="customRadioInline1"
+                    value="yes"
+                    name="sampleCopy"
+                    class="custom-control-input"
+                    checked=""
+                  />
+                  <label class="custom-control-label" for="customRadioInline1"
+                    >Yes</label
+                  >
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input
+                    type="radio"
+                    id="customRadioInline2"
+                    value="Maybe"
+                    name="sampleCopy"
+                    class="custom-control-input"
+                  />
+                  <label class="custom-control-label" for="customRadioInline2"
+                    >No</label
+                  >
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input
+                    type="radio"
+                    id="customRadioInline3"
+                    value="Not sure"
+                    name="sampleCopy"
+                    class="custom-control-input"
+                  />
+                  <label class="custom-control-label" for="customRadioInline3"
+                    >Not sure</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Purchasable ?</label>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input
+                        type="radio"
+                        id="customRadioInline1"
+                        value="true"
+                        name="isPurchasable"
+                        class="custom-control-input"
+                        checked=""
+                      />
+                      <label class="custom-control-label" for="customRadioInline1"
+                        >Yes</label
+                      >
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input
+                        type="radio"
+                        id="customRadioInline2"
+                        value="Maybe"
+                        name="isPurchasable"
+                        class="custom-control-input"
+                      />
+                      <label class="custom-control-label" for="customRadioInline2"
+                        >No</label
+                      >
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input
+                        type="radio"
+                        id="customRadioInline3"
+                        value="Not sure"
+                        name="isPurchasable"
+                        class="custom-control-input"
+                      />
+                      <label class="custom-control-label" for="customRadioInline3"
+                        >Not sure</label
+                      >
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Leave Message</label>
+                <textarea
+                  id="comments"
+                  class="form-control"
+                  name="comment"
+                  placeholder="Enter your comment here..."
+                ></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <button
+                type="submit"
+                id="submit"
+                class="btn btn-primary btn-block"
+              >
+                Submit 
+              </button>
+            </div>
+          </div> </div>          </div></div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
