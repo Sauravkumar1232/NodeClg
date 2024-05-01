@@ -34,7 +34,7 @@
         </thead>
         <tbody>
           <tr v-for="(student, index) in students" :key="index">
-            <th scope="row">index</th>
+            <th scope="row">{{ index + 1 }}</th>
             <td>{{ student.name }}</td>
             <td>{{ student.gender }}</td>
             <td>{{ student.rollNo }}</td>
@@ -55,7 +55,7 @@
     </body>
   </html>
 
-  <input id="btn" type="button" value="Click" @click="add()" />
+  <input type="button" value="Click" @click="add()" />
 </template>
 
 <script>

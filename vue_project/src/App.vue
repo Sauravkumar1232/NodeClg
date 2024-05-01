@@ -3,23 +3,24 @@
   <!-- <HelloWorld msg="Welcome to Your Vue.js App"/>  -->
   <!-- <MyHome/>  -->
   <!-- <Home/> -->
-  <MyText/>
+  <MyModel />
 </template>
 
 <script>
-import MyText from './components/MyText.vue'
+// import MyText from "./components/MyText.vue";
 // import MyHome from './components/MyHome.vue'
 // import Home from './components/Home.vue'
-
+import MyModel from "./components/MyModel.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     // MyHome,
     // Home
-    MyText
-  }
-}
+    // MyText
+    MyModel,
+  },
+};
 </script>
 
 <style>
