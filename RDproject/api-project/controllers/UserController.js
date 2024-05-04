@@ -16,6 +16,10 @@ const createuser = async (req, res) => {
     });
   });
 };
+const users = (req, res) => {
+  let users = User.find({});
+  console.log(users);
+};
 module.exports = {
   createuser,
 };
