@@ -16,10 +16,38 @@ const createuser = async (req, res) => {
     });
   });
 };
-const users = (req, res) => {
-  let users = User.find({});
-  console.log(users);
+const users = async (req, res) => {
+  let user = await User.find({});
+
+  // console.log(user);
+  res.status(200).send({
+    success: true,
+    message: "User Fetched....",
+    data: user,
+  });
+};
+
+const deleteUser = async (req, res) => {
+  try {
+    let id = req.params._userId;
+    console.log(id);
+
+    let user = await User.deleteOne({ _id: id });
+    res.status(200).send({
+      success: true,
+      message: "Deleted Success..",
+      data: user,
+    });
+  } catch (error) {
+    res.status(500).send({
+      success: true,
+      message: "Error ",
+      error,
+    });
+  }
 };
 module.exports = {
   createuser,
+  users,
+  deleteUser,
 };

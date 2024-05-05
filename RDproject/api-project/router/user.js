@@ -7,4 +7,7 @@ router.post("/user/create", (req, res) => {
 router.get("/user/list", (req, res) => {
   usercontroller.users(req, res);
 });
+router.delete("/user/delete/:userId", (req, res) => {
+  usercontroller.deleteUser(req, res);
+});
 module.exports = router;
