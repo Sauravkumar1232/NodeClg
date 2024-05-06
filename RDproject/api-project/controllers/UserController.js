@@ -67,18 +67,32 @@ const getUserForEdit = async (req, res) => {
 };
 
 const userEdit = async (req, res) => {
-  let id = req.params.id;
-  const { firstname } = req.body;
-  let user = await User.findById({ _id: id });
-  console.log(user, "user for update");
+  try {
+    let id = req.params.id;
+    console.log(id, "id");
+    console.log(req.body);
+    const { firstname, Lastname, email, password } = req.body;
+    let user = await User.findById({ _id: id });
+    console.log(user, "user for update");
 
-  user.firstname = req.body.firstname;
-  await user.save();
-  res.status(200).send({
-    success: true,
-    message: "User Fetched...",
-    data: user,
-  });
+    user.firstname = firstname;
+    user.Lastname = Lastname;
+    user.email = email;
+    user.password = password;
+
+    await user.save();
+    res.status(200).send({
+      success: true,
+      message: "User Updated...",
+      // data: user,
+    });
+  } catch (err) {
+    res.status(500).send({
+      success: false,
+      message: "Error ",
+      err,
+    });
+  }
 };
 
 module.exports = {

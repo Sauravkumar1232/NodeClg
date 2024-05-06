@@ -8,12 +8,12 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 app.use(
   bodyParser.urlencoded({
-    extended: false,
+    extended: true,
   })
 );
-app.use(express.json());
+app.use(bodyParser.json());
+// app.use(express.json());
 app.use(cors());
-connect();
 app.use(userRouter);
 app.use(bookRouter);
 
@@ -24,3 +24,5 @@ app.listen(3000, (error) => {
     console.log("server is running at 3000");
   }
 });
+
+connect();

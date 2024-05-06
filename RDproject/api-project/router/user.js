@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-router.use(express.json());
+// router.use(express.json());
 const usercontroller = require("../controllers/UserController");
 router.post("/user/create", (req, res) => {
   usercontroller.createuser(req, res);
